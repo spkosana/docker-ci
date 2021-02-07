@@ -1,0 +1,23 @@
+name: docker ci build
+
+on: [push]
+
+jobs: 
+  docker-ci-build:
+    runs-on: ubuntu-latest
+    steps:
+    # This command 
+      - uses: actions/checkout@v2  
+      - name: Run a sample bash command
+        run: echo docker build
+      - name: Run multiple lines of bash commands
+        run: | 
+          echo writing first docker ci build using github actions
+          echo test, deploying docker project
+      # - name: docker login
+      #   env:
+      #     DOCKER_USER: ${{ secrets.DOCKER_USER }}   
+      #     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      # - name: docker build python
+      #   run: |
+      #     docker build -t spkosana/python:1.0.0 .
