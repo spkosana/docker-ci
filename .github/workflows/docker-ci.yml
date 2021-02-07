@@ -14,10 +14,12 @@ jobs:
         run: | 
           echo writing first docker ci build using github actions
           echo test, deploying docker project
-      # - name: docker login
-      #   env:
-      #     DOCKER_USER: ${{ secrets.DOCKER_USER }}   
-      #     DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: docker login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}   
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       # - name: docker build python
       #   run: |
       #     docker build -t spkosana/python:1.0.0 .
